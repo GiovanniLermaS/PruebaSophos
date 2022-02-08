@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), TabLayout.OnTabSelectedListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding?.root)
 
-        val adapter = TabLayoutAdapter(this, supportFragmentManager, binding?.tl?.tabCount)
+        val adapter = binding?.tl?.tabCount?.let { TabLayoutAdapter(supportFragmentManager, it) }
         binding?.vp?.adapter = adapter
         binding?.vp?.addOnPageChangeListener(TabLayoutOnPageChangeListener(binding?.tl))
         binding?.tl?.setOnTabSelectedListener(this)
