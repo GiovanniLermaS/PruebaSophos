@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.testing.R
+import com.example.testing.databinding.FragmentAllBinding
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -13,6 +13,7 @@ private const val ARG_PARAM2 = "param2"
 class AllFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
+    private var binding: FragmentAllBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +27,7 @@ class AllFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_all, container, false)
+        binding = FragmentAllBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 }
